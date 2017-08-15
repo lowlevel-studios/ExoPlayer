@@ -357,7 +357,8 @@ import java.util.concurrent.atomic.AtomicInteger;
       // MPEG-2 TS segments, but we need a new extractor.
       // This flag ensures the change of pid between streams does not affect the sample queues.
       @DefaultTsPayloadReaderFactory.Flags
-      int esReaderFactoryFlags = DefaultTsPayloadReaderFactory.FLAG_IGNORE_SPLICE_INFO_STREAM;
+      int esReaderFactoryFlags = DefaultTsPayloadReaderFactory.FLAG_ALLOW_NON_IDR_KEYFRAMES |
+        DefaultTsPayloadReaderFactory.FLAG_IGNORE_SPLICE_INFO_STREAM;
       List<Format> closedCaptionFormats = muxedCaptionFormats;
       if (closedCaptionFormats != null) {
         // The playlist declares closed caption renditions, we should ignore descriptors.
